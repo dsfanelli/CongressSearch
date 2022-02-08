@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  background-color: rgb(242, 243, 244);
+}
+
+button {
+  cursor: pointer;
+}
+
+.App {
+  font-family: sans-serif;
+}
+
+.searchTopicNav {
+  text-align: center;
+  background-color: blue;
+}
+
+.topicOption {
+  padding: 0 0 0 0;
+  border-width: 0 0 0 0;
+  margin-right: 2%;
+  background-color: blue;
+  color: white;
+}
+
+.topicOption:hover {
+  background-color: rgb(10, 10, 100);
+}
+
+.searchResults {
+  width: 80%;
+  margin: 2% auto 2% auto;
+}
+
+.searchResultRow.oddRow {
+  background-color: rgb(188, 221, 233);
+}
+
+.searchResultRow.evenRow {
+  background-color: white;
+}
+
+.searchResultRowCells {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1%;
+  box-shadow: 0px 2px 2px #888888;
+}
+
+.searchResultRowCells > * {
+  width: 25%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+}
+
+.searchResultRowCells > * :not(:first-child):not(:last-child) {
+  text-align: center;
+}
+
+.pageNav {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.pageNum {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.arrow {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border: solid;
+  border-width: 0px 2px 2px 0px;
+  vertical-align: middle;
+}
+
+.arrow.left {
+  transform: rotate(135deg);
+}
+
+.arrow.right {
+  transform: rotate(-45deg);
+}
+
+.searchNav .topicOption {
+  border: 1px solid;
+  border-radius: 25px;
+  margin-right: 1%;
+  padding-right: 3%;
+  padding-left: 3%;
+}
+
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 1% auto 1% auto;
+}
+
+.searchForm .formControl {
+  width: 50%;
+  text-align: left;
+  margin-top: 2%;
+}
+
+.loading {
+  background: url("./assets/loadingGIF.gif") repeat;
+  height: 100px;
+  width: 100px;
+}
+
+@media all and (max-width: 768px) {
+  .searchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
