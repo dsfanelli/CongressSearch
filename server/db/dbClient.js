@@ -1,5 +1,10 @@
 const { MongoClient } = require("mongodb");
-
+/*
+  A DBClient is used to communicate with the database 
+  for database related operations like querying and loading.
+  It hides away the dbms, as well as the actual syntax used
+  to query the db that it relies on.
+*/
 class DBClient {
   constructor() {
     this.uri =

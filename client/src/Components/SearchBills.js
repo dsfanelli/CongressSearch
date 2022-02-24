@@ -1,5 +1,14 @@
 import { React } from "react";
-
+/*
+  A search form for bills. Its state (formData)
+  is meant by default to be managed by a parent 
+  or external component for consistency. "handleChange"
+  is provided as a callback prop and not implemented here 
+  so it can exist in different contexts (i.e. if 
+  it needs to be a live search form, the handleChange
+  callback can be changed without a need to change
+  the form itself)
+*/
 const SearchBills = (props) => {
   const { formData, handleChange } = props;
   return (

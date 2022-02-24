@@ -1,3 +1,7 @@
+/*
+  Handles data fetching and construction of congressional bills
+  supported/rejected by congress members
+*/
 const VotesMetaData = require("../db/metaData/VotesMetaData.js").votesMetaData;
 const db = require("../db/dbClient.js").dbClient;
 const fieldNames = Object.keys(VotesMetaData.fields);

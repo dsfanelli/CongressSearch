@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 */
 
 const BillsResults = (props) => {
-  const { searchResults } = props;
+  const searchResults = props.data;
   const history = useHistory();
   const [expandedTitleRows, setExpandedTitleRows] = useState({});
   /*
@@ -23,6 +23,7 @@ const BillsResults = (props) => {
       setExpandedTitleRows({ ...expandedTitleRows });
     }
   };
+
   return (
     <div className="searchResults">
       {searchResults.map((bill, index) => {
@@ -34,34 +35,36 @@ const BillsResults = (props) => {
           primary_subject,
           ...rest
         } = bill;
-        const titleExpanded = expandedTitleRows.hasOwnProperty(index)
+        const titleExpanded = expandedTitleRows.hasOwnProperty(number)
           ? true
           : false;
         const rowEven = index % 2 === 0;
         return (
           <div
             className={"searchResultRow " + (rowEven ? "evenRow" : "oddRow")}
-            key={bill_id}
           >
             <div className="searchResultRowCells">
-              <div className="resultText">
-                <details
-                  className="expandButton"
-                  onClick={(e) => {
-                    changeExpandState(number);
-                  }}
-                >
-                  <summary>{number}</summary>
-                </details>
+              <div className="resultCell">
+                <div className="billTitle">{title}</div>
+                <div className="expandLink">
+                  <a
+                    href="javascript:void(0);"
+                    onClick={(e) => {
+                      changeExpandState(number);
+                    }}
+                  >
+                    {titleExpanded ? "less..." : "more..."}
+                  </a>
+                </div>
               </div>
-              <div className="resultText">{primary_subject}</div>
-              <div className="resultText">{sponsor_name}</div>
-              <div className="detailsLink">
+              <div className="resultCell">{primary_subject}</div>
+              <div className="resultCell">{sponsor_name}</div>
+              <div className="resultCell">
                 <a
                   href="javascript:void(0);"
                   onClick={() => {
                     history.push({
-                      location: "/details/BillsDetails",
+                      pathname: "/details/bills",
                       search: "bill_id=" + bill_id
                     });
                   }}

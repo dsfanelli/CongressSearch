@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
   congress members
 */
 const CongressMembersResults = (props) => {
-  const { searchResults } = props;
+  const searchResults = props.data;
   const history = useHistory();
   return (
     <div className="searchResults">
@@ -15,18 +15,17 @@ const CongressMembersResults = (props) => {
         return (
           <div
             className={"searchResultRow " + (rowEven ? "evenRow" : "oddRow")}
-            key={member.id}
           >
             <div className="searchResultRowCells">
-              <div className="resultText">{first_name + " " + last_name}</div>
-              <div className="resultText">{party}</div>
-              <div className="resultText">{state}</div>
-              <div className="resultText">
+              <div className="resultCell">{first_name + " " + last_name}</div>
+              <div className="resultCell">{party}</div>
+              <div className="resultCell">{state}</div>
+              <div className="resultCell">
                 <a
                   href="javascript:void(0);"
                   onClick={() => {
                     history.push({
-                      location: "/details/CongressMemberDetails",
+                      pathname: "/details/congressmembers",
                       search: "id=" + member.id
                     });
                   }}

@@ -1,3 +1,6 @@
+/*
+  Handles data fetching and construction of congressional bill objects
+*/
 const billsMetaData = require("../db/metaData/BillsMetaData.js").billsMetaData;
 const db = require("../db/dbClient.js").dbClient;
 const fieldNames = Object.keys(billsMetaData.fields);

@@ -1,3 +1,6 @@
+/*
+  Handles data fetching and construction of congress member objects
+*/
 const membersMetaData = require("../db/metaData/CongressMembersMetaData.js")
   .membersMetaData;
 const db = require("../db/dbClient.js").dbClient;

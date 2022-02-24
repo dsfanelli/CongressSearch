@@ -1,3 +1,13 @@
+/*
+  This router is involved in data retrieval. It first 
+  calls upon middleware to extract regular expressions
+  from the query string to convert them into regExp
+  objects (see ./middleware/convertRegexStrings for details).
+  before shooting the query string data to data fetching
+  functions based on the topic the user wants to search
+  against
+*/
+
 const express = require("express");
 const router = express.Router();
 const regexStringConverter = require("../middleware/convertRegexStrings.js")

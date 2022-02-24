@@ -62,7 +62,7 @@ const APIFetcher = (props) => {
         if (errMessage !== "") {
           return errMessage;
         }
-        return <ResultsContainer searchResults={results} />;
+        return <ResultsContainer data={results} />;
       })()}
     </div>
   );

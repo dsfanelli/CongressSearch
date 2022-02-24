@@ -1,4 +1,10 @@
 import React from "react";
+/*
+  This is a tool for navigating paginated 
+  search results, with the number of the
+  displayed page between the two navigation
+  buttons
+*/
 const PageNav = (props) => {
   const { pageNum, changePageNum } = props;
   return (

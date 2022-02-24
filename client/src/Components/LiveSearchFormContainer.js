@@ -11,7 +11,7 @@ import React, { useRef } from "react";
 */
 const LiveSearchFormContainer = (props) => {
   /*
-    fieldParams: an object containing key value pairs
+    formFields: an object containing key value pairs
     of search parameters and their values. It maintains the state
     of the form's values between each query (i.e. if the user types
     "birds", "birds" will remain visible in the form). This could've
@@ -23,7 +23,7 @@ const LiveSearchFormContainer = (props) => {
     the change handler and the query state.
   */
 
-  const { fieldParams, submitSearch, SearchForm } = props;
+  const { formFields, submitSearch, SearchForm } = props;
   const timeout = useRef(null);
   const handleChange = (e) => {
     //debounce input to limit api calls
@@ -33,23 +33,23 @@ const LiveSearchFormContainer = (props) => {
       //apply regex carat to allow search by matching prefix
       value = type === "text" && value !== "" ? "^" + value.trim() : value;
       if (value === "") {
-        delete fieldParams[name];
+        delete formFields[name];
       } else {
-        fieldParams[name] = value;
+        formFields[name] = value;
       }
-      submitSearch({ ...fieldParams });
+      submitSearch({ ...formFields });
     }, 100);
   };
   //copy fieldParams and remove prefix search regex carat so it doesn't display in textboxes
-  let fieldParamsCopy = { ...fieldParams };
-  Object.keys(fieldParamsCopy).forEach((fieldName) => {
-    if (fieldParamsCopy[fieldName].startsWith("^")) {
-      fieldParamsCopy[fieldName] = fieldParamsCopy[fieldName].substring(1);
+  let formFieldsCopy = { ...formFields };
+  Object.keys(formFieldsCopy).forEach((fieldName) => {
+    if (formFieldsCopy[fieldName].startsWith("^")) {
+      formFieldsCopy[fieldName] = formFieldsCopy[fieldName].substring(1);
     }
   });
   return (
     <div className="searchFormContainer">
-      <SearchForm formData={fieldParamsCopy} handleChange={handleChange} />
+      <SearchForm formData={formFieldsCopy} handleChange={handleChange} />
     </div>
   );
 };

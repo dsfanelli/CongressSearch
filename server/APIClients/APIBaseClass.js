@@ -1,5 +1,11 @@
 const fetch = require("node-fetch-npm");
 
+/*
+  A base class for objects that query propublica's api to extend.
+  It hides logic and values used to fetch from their api. The children
+  are used by ./dbScripts/loader.js
+*/
+
 class APIBaseClass {
   constructor() {
     this.headers = {

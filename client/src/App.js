@@ -38,10 +38,9 @@ export default function App() {
                 searchTopic={searchTopic}
                 SearchTopicNavBar={SearchTopicNavBar}
                 SearchForm={SearchForm}
+                SearchResultsContainer={SearchResultsContainer}
                 PageNav={PageNav}
-              >
-                {SearchResultsContainer}
-              </SearchPage>
+              ></SearchPage>
             );
           }}
         />
