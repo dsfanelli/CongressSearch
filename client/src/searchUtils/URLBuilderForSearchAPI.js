@@ -24,7 +24,7 @@ class URLBuilderForSearchAPI {
     const limit = urlComponents.limit || 1;
     const options =
       this.skipLabel + skip + this.delimeter + this.limitLabel + limit;
-    const queryString = fieldParams + (fieldParams ? "&" : "") + options;
+    const queryString = fieldParams + (fieldParams ? this.delimeter : "") + options;
     return (
       this.header +
       searchTopic +
