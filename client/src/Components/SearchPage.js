@@ -99,9 +99,9 @@ const SearchPage = (props) => {
         updateSearchTopic={updateSearchTopic}
       />
       <LiveSearchFormContainer
-        formFields={qsObject.entries()}
-        SearchForm={SearchForm}
+        formFields={Object.fromEntries(qsObject)}
         submitSearch={submitSearch}
+        SearchForm={SearchForm}
       />
       <APIFetcher
         URL={urlForSearchAPI}
